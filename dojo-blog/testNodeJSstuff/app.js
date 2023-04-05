@@ -1,18 +1,9 @@
-const EventEmitter = require('events');
-const emitter = new EventEmitter();
-const http = require('http')
+const { log } = require('console');
+const fs = require('fs')
 
-// about to create a mfin server object
-http.createServer((req, res) => {
-    res.writeHead(200, {'Content-Type': 'text'})
-    res.write('<button>ur mom</button>') // THE RESPONSE
-    res.end(); // ends it
-}).listen(6969)
-
-// Register a listener
-emitter.on('messageLogged', () => {
-    console.log('Listener called');
+fs.unlink('rando.txt', (err) => {
+    if (err) throw err;
+    log('File deleted')
 })
 
-// Raise an event
-emitter.emit('messageLogged');
+// super inefficient but i'm deleting bitches from the mf-in node command line!!!!
