@@ -1,3 +1,6 @@
-#!/usr/bin/env node
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-console.log('hello world 123');
+
+// Raise an event
+emitter.emit('messageLogged');
